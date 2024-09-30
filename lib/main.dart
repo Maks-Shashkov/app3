@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'catalog.dart';
 
@@ -123,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => catalog()),
+                        MaterialPageRoute(builder: (context) => Catalog()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -144,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: 16),
                   OutlinedButton(
                     onPressed: () {
-                      // Логика для регистрации
+                      // Когда то здесь появится логика регистрации воthмоthно
                     },
                     style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 16),

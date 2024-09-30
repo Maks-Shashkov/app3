@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'add_product_page.dart';
 import 'description.dart';
 
-class catalog extends StatelessWidget {
-  final List<Map<String, dynamic>> products = [
+class Catalog extends StatefulWidget {
+  @override
+  _CatalogState createState() => _CatalogState();
+}
+
+class _CatalogState extends State<Catalog> {
+  List<Map<String, dynamic>> products = [
     {
       'title': 'Смартфон Vivo',
       'price': '25,000 ₽',
-      'description': 'Смартфон с отличной камерой и производительностью. Смартфон Vivo',
+      'description': 'Смартфон с отличной камерой и производительностью.',
       'image': 'https://via.placeholder.com/150',
     },
     {
@@ -23,16 +29,28 @@ class catalog extends StatelessWidget {
     },
   ];
 
+  void _removeProduct(int index) {
+    setState(() {
+      products.removeAt(index);
+    });
+  }
+
+  void _addProduct(Map<String, dynamic> newProduct) {
+    setState(() {
+      products.add(newProduct);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         backgroundColor: Colors.grey.shade900,
-          title: Text(
-            "Товары",
-            style: TextStyle(color: Colors.white),
-          ),
+        title: Text(
+          "Товары",
+          style: TextStyle(color: Colors.white),
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
@@ -66,13 +84,24 @@ class catalog extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      product['title'],
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          product['title'],
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            _removeProduct(index);
+                          },
+                        ),
+                      ],
                     ),
                     SizedBox(height: 8),
                     Text(
@@ -99,7 +128,8 @@ class catalog extends StatelessWidget {
                         ),
                         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                      },
                       child: Text(
                         'Купить',
                         style: TextStyle(
@@ -115,8 +145,23 @@ class catalog extends StatelessWidget {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue.shade800,
+        onPressed: () async {
+          final newProduct = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddProductPage()),
+          );
+          if (newProduct != null) {
+            _addProduct(newProduct);
+          }
+        },
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
-}
 
+
+}
 
