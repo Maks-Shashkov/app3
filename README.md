@@ -1,12 +1,11 @@
 Программирование информационных систем 
 Шашков М. К. ЭФБО-05-22
 
-Практическая работа номер 2 (Тему изменил чтобы не контрастировала со всем приложением)
-![image](https://github.com/user-attachments/assets/5a2f7f61-2a84-45ae-a465-b1cb83c037c2)
-Практическая работа номер 3
-![image](https://github.com/user-attachments/assets/47276936-191f-44f9-a9cf-7cb67305108a)
-![image](https://github.com/user-attachments/assets/7f045b33-5a52-4c6a-93dd-59ea634bcab7)
-Пока не добавил картинки потому что хочу найти определенного формата.
+Практическая работа номер 4
+![image](https://github.com/user-attachments/assets/28ee8c93-2420-4ba4-a151-e97c49cf1cd2)
+![image](https://github.com/user-attachments/assets/389a72df-e370-4ea4-8543-606aabc87704)
+
+
 
 
 
